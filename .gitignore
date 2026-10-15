@@ -1,0 +1,22 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+build/
+dist/
+
+# Spectral libraries, extracted data, and analysis results can be very large
+# and may contain non-public research data.
+*.speclib
+*.parquet
+*.arrow
+*.feather
+*.h5
+*.hdf5
+analysis/
+data/
+outputs/
+results/
+*.log

@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "diann-speclib-explorer"
+version = "0.1.0"
+description = "Parse DIA-NN compact .speclib files and explore predicted retention times"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "DIA-NN Speclib Explorer contributors" }]
+keywords = ["proteomics", "DIA-NN", "spectral library", "mass spectrometry", "retention time"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = [
+  "matplotlib>=3.7",
+  "numpy>=1.24",
+  "pandas>=2.0",
+  "pyarrow>=14.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/mmmddd98/diann-speclib-explorer"
+Repository = "https://github.com/mmmddd98/diann-speclib-explorer"
+Issues = "https://github.com/mmmddd98/diann-speclib-explorer/issues"
+
+[project.optional-dependencies]
+dev = ["build>=1.2", "pytest>=8.0"]
+
+[project.scripts]
+diann-speclib = "diann_speclib_explorer.__main__:main"
+diann-speclib-parse = "diann_speclib_explorer.parse_diann_speclib:main"
+diann-speclib-extract-rt = "diann_speclib_explorer.extract_diann_rt:main"
+diann-speclib-plot-rt = "diann_speclib_explorer.plot_diann_rt_comparison:main"
+diann-speclib-plot-modifications = "diann_speclib_explorer.plot_diann_modification_pairs:main"
+diann-speclib-import-carafe-rt = "diann_speclib_explorer.import_carafe_rt:main"
+diann-speclib-plot-all-rt = "diann_speclib_explorer.plot_all_rt_libraries:main"
+diann-speclib-plot-integrated-tuning = "diann_speclib_explorer.plot_integrated_tuning:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
